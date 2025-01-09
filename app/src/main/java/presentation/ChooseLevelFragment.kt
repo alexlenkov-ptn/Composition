@@ -13,7 +13,7 @@ class ChooseLevelFragment : Fragment() {
 
     private val binding
         get() = _binding
-            ?: throw IllegalStateException("Binding for FragmentWelcomeBinding must not be null")
+            ?: throw IllegalStateException("Binding for ChooseLevelFragment must not be null")
 
     override fun onCreateView(
         inflater: LayoutInflater,

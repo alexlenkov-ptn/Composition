@@ -13,7 +13,7 @@ class WelcomeFragment : Fragment() {
 
     private val binding
         get() = _binding
-            ?: throw RuntimeException("Binding for FragmentWelcomeBinding must not be null")
+            ?: throw RuntimeException("Binding for WelcomeFragment must not be null")
 
     override fun onCreateView(
         inflater: LayoutInflater,

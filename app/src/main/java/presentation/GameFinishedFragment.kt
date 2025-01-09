@@ -13,7 +13,7 @@ class GameFinishedFragment : Fragment() {
 
     private val binding
         get() = _binding
-            ?: throw IllegalStateException("Binding for FragmentWelcomeBinding must not be null")
+            ?: throw IllegalStateException("Binding for GameFinishedFragment must not be null")
 
     override fun onCreateView(
         inflater: LayoutInflater,
