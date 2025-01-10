@@ -1,5 +1,7 @@
 package presentation
 
+import android.os.Build
+import android.os.Build.VERSION
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,7 +28,7 @@ class GameFinishedFragment : Fragment() {
         fun newInstance(gameResult: GameResult): GameFinishedFragment {
             return GameFinishedFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_GAME_RESULT, gameResult)
+                    putParcelable(KEY_GAME_RESULT, gameResult)
                 }
             }
         }
@@ -58,10 +60,23 @@ class GameFinishedFragment : Fragment() {
                     retryGame()
                 }
             })
+
+        binding.buttonRetry.setOnClickListener {
+            retryGame()
+        }
     }
 
     private fun parseArgs() {
-        gameResult = requireArguments().getSerializable(KEY_GAME_RESULT) as GameResult
+        if (VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT, GameResult::class.java)
+                ?.let { gameResult ->
+                    this.gameResult = gameResult
+                }
+        } else {
+            requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let { gameResult ->
+                this.gameResult = gameResult
+            }
+        }
     }
 
     private fun retryGame() {
