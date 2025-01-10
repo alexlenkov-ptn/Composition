@@ -1,5 +1,7 @@
 package presentation
 
+import android.os.Build
+import android.os.Build.VERSION
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +13,7 @@ import com.example.composition.databinding.FragmentGameBinding
 import domain.entity.GameResult
 import domain.entity.GameSettings
 import domain.entity.Level
+import presentation.GameFinishedFragment.Companion.KEY_GAME_RESULT
 
 class GameFragment : Fragment() {
 
@@ -35,7 +38,7 @@ class GameFragment : Fragment() {
         fun newInstance(level: Level): GameFragment {
             return GameFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_LEVEL, level)
+                    putParcelable(KEY_LEVEL, level)
                 }
             }
         }
@@ -79,7 +82,16 @@ class GameFragment : Fragment() {
     }
 
     private fun parseArgs() {
-        level = requireArguments().getSerializable(KEY_LEVEL) as Level
+        if (VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requireArguments().getParcelable<Level>(KEY_LEVEL, Level::class.java)
+                ?.let { level ->
+                    this.level = level
+                }
+        } else {
+            requireArguments().getParcelable<Level>(KEY_LEVEL)?.let { level ->
+                this.level = level
+            }
+        }
     }
 
 }
