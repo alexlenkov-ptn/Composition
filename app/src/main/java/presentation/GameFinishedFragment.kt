@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.composition.databinding.FragmentGameFinishedBinding
 import domain.entity.GameResult
+import presentation.gameFragment.GameFragment
 
 class GameFinishedFragment : Fragment() {
 
