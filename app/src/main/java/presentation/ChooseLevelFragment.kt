@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.composition.R
 import com.example.composition.databinding.FragmentChooseLevelBinding
 import domain.entity.Level
+import presentation.gameFragment.GameFragment
 
 class ChooseLevelFragment : Fragment() {
 

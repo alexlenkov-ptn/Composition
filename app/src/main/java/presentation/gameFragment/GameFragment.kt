@@ -1,4 +1,4 @@
-package presentation
+package presentation.gameFragment
 
 import android.os.Build
 import android.os.Build.VERSION
@@ -13,7 +13,7 @@ import com.example.composition.databinding.FragmentGameBinding
 import domain.entity.GameResult
 import domain.entity.GameSettings
 import domain.entity.Level
-import presentation.GameFinishedFragment.Companion.KEY_GAME_RESULT
+import presentation.GameFinishedFragment
 
 class GameFragment : Fragment() {
 
