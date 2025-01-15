@@ -146,7 +146,6 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     companion object {
-
         private const val MILLIS_IN_SECONDS = 1000L
         private const val SECONDS_IN_MINUTES = 60
     }

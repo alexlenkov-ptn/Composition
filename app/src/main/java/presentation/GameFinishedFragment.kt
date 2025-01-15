@@ -82,7 +82,7 @@ class GameFinishedFragment : Fragment() {
 
     private fun retryGame() {
         requireActivity().supportFragmentManager
-            .popBackStack(GameFragment.FRAGMENT_NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            .popBackStack(GameFragment.NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
     override fun onDestroy() {

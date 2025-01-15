@@ -54,7 +54,7 @@ class ChooseLevelFragment : Fragment() {
     private fun launchGameFragment(level: Level) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.main_container, GameFragment.newInstance(level))
-            .addToBackStack(GameFragment.FRAGMENT_NAME)
+            .addToBackStack(GameFragment.NAME)
             .commit()
     }
 
